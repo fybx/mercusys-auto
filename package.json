@@ -1,0 +1,29 @@
+{
+  "name": "mercusys-auto",
+  "version": "1.0.0",
+  "description": "Automatically turn WiFi on or off on Mercusys AC12G",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fybx/mercusys-auto.git"
+  },
+  "keywords": [
+    "automation"
+  ],
+  "author": "Ferit Yiğit BALABAN",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/fybx/mercusys-auto/issues"
+  },
+  "homepage": "https://github.com/fybx/mercusys-auto#readme",
+  "bin": {
+    "mercusys": "main.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.5.0",
+    "yargs": "^17.7.2"
+  }
+}
