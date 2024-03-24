@@ -6,6 +6,18 @@ const config = require('./configuration.json');
 
 let MAX_RETRIES = 11;
 
+const argv = yargs(hideBin(process.argv)).argv;
+
+if (Object.keys(argv).length === 1) {
+	console.log("setting all:", argv._[0]);
+	init(argv._[0], argv._[0]);
+} else if (Object.keys(argv).length === 2) {
+	console.log("setting 2.4 GHz:", argv._[0], "5 GHz:", argv._[1]);
+	init(argv._[0], argv._[1]);
+} else {
+	console.log('Dude wtf');
+}
+
 async function openBrowserSession() {
 	let browser = undefined;
 
@@ -127,14 +139,3 @@ async function crazyClicker(page, parentDivId) {
 	}, parentDivId);
 }
 
-const argv = yargs(hideBin(process.argv)).argv;
-
-if (Object.keys(argv).length === 1) {
-	console.log('implement toggle mode');
-} else if (Object.keys(argv).length === 2) {
-	init(argv._[0], argv._[0]);
-} else if (Object.keys(argv).length === 3) {
-	init(argv._[0], argv._[1]);
-} else {
-	console.log('Dude wtf');
-}
