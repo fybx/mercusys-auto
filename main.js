@@ -19,18 +19,7 @@ if (Object.keys(argv).length === 1) {
 }
 
 async function openBrowserSession() {
-	let browser = undefined;
-
-	if (config.platform === 'arm') {
-		browser = await puppeteer.launch({
-			headless: config.test ? false : 'new',
-			executablePath: '/usr/bin/chromium-browser',
-			args: ['--no-sandbox', '--disable-setuid-sandbox'],
-		});
-	} else if (config.platform === 'x86_64')
-		browser = await puppeteer.launch({ headless: config.test ? false : 'new' });
-	else return undefined;
-
+	let browser = await puppeteer.launch({ headless: 'shell' });
 	const page = (await browser.pages())[0];
 	await Promise.all([page.goto(config.url), page.waitForNavigation()]);
 	return { browser: browser, page: page };
